@@ -19,4 +19,9 @@ class Task(models.Model):
         ordering = ["-deadline", "-created_at"]
 
     def __str__(self) -> str:
-        return self.content[:50]
+        content = self.content[:50]
+
+        if len(self.content) > 50:
+            content += "..."
+
+        return content
