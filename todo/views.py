@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -6,7 +7,7 @@ from todo.forms import TaskForm
 from todo.models import Task
 
 
-def index(request):
+def index(request: HttpRequest) -> HttpResponse:
     tasks = Task.objects.all()
     return render(request, "todo/index.html", {"tasks": tasks})
 
@@ -26,3 +27,13 @@ class TaskUpdateView(generic.UpdateView):
 class TaskDeleteView(generic.DeleteView):
     model = Task
     success_url = reverse_lazy("todo:index")
+
+
+class TaskCompleteView(generic.View):
+    @staticmethod
+    def get(request: HttpRequest, pk: int) -> HttpResponse:
+        task = get_object_or_404(Task, pk=pk)
+        task.is_done = not task.is_done
+        task.save()
+
+        return redirect("todo:index")

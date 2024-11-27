@@ -44,9 +44,9 @@
 
         <div>
           {% if task.is_done %}
-            <a href="#" class="btn btn-secondary">Undo</a>
+            <a href="{% url "todo:task-complete" pk=task.id %}" class="btn btn-secondary">Undo</a>
           {% else %}
-            <a href="#" class="btn btn-success">Complete</a>
+            <a href="{% url "todo:task-complete" pk=task.id %}" class="btn btn-success">Complete</a>
           {% endif %}
         </div>
 
