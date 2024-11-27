@@ -19,7 +19,7 @@ class TaskAdmin(admin.ModelAdmin):
     list_filter = ["is_done", "deadline", "tag__name"]
     list_editable = ["is_done"]
 
-    def preview_task_content(self, task):
+    def preview_task_content(self, task: Task) -> str:
         content = task.content[:50]
 
         if len(task.content) > 50:
@@ -27,7 +27,7 @@ class TaskAdmin(admin.ModelAdmin):
 
         return content
 
-    def get_tags(self, task):
+    def get_tags(self, task: Task) -> str:
         return ", ".join([tag.name for tag in task.tag.all()])
 
     preview_task_content.short_description = "Content"
