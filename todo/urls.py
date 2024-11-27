@@ -22,5 +22,6 @@ urlpatterns = [
         views.TaskCompleteView.as_view(),
         name="task-complete"
     ),
-    path("tags/", views.TagListView.as_view(), name="tag-list")
+    path("tags/", views.TagListView.as_view(), name="tag-list"),
+    path("tags/create/", views.TagCreateView.as_view(), name="tag-create")
 ]

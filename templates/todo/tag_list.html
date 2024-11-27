@@ -7,7 +7,7 @@
 {% block Content %}
   <h1 class="my-4 d-flex justify-content-between">
     Tags
-    <a href="#" class="btn btn-primary mb-3">Add Tag</a>
+    <a href="{% url "todo:tag-create" %}" class="btn btn-primary mb-3">Add Tag</a>
   </h1>
 
   <table class="table">
