@@ -23,7 +23,7 @@
       <tr>
         <td>{{ tag.name }}</td>
         <td>
-          <a href="#" class="btn btn-secondary mb-3">Update</a>
+          <a href="{% url "todo:tag-update" pk=tag.id %}" class="btn btn-secondary mb-3">Update</a>
         </td>
         <td>
           <a href="#" class="btn btn-secondary mb-3">Delete</a>
