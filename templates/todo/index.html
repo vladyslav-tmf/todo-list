@@ -7,7 +7,7 @@
 {% block Content %}
   <h1 class="my-4 d-flex justify-content-between">
     TODO List
-    <a href="#" class="btn btn-primary mb-3">Add Task</a>
+    <a href="{% url "todo:task-create" %}" class="btn btn-primary mb-3">Add Task</a>
   </h1>
 
   <ul class="list-group">
