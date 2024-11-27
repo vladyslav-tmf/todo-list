@@ -21,5 +21,6 @@ urlpatterns = [
         "tasks/<int:pk>/complete/",
         views.TaskCompleteView.as_view(),
         name="task-complete"
-    )
+    ),
+    path("tags/", views.TagListView.as_view(), name="tag-list")
 ]

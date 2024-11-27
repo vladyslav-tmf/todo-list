@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from todo.forms import TaskForm
-from todo.models import Task
+from todo.models import Tag, Task
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -37,3 +37,7 @@ class TaskCompleteView(generic.View):
         task.save()
 
         return redirect("todo:index")
+
+
+class TagListView(generic.ListView):
+    model = Tag
