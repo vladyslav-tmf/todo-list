@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block Title %}
+  Delete Task
+{% endblock Title %}
+
+{% block Content %}
+  <div class="container">
+    <h1 class="my-4">Are you sure you want to delete this task?</h1>
+    <div class="card">
+      <div class="card-body">
+        <h4>{{ task.content }}</h4>
+      </div>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger mt-3">Delete</button>
+      <a href="{% url "todo:index" %}" class="btn btn-secondary mt-3">Cancel</a>
+    </form>
+  </div>
+{% endblock Content %}
