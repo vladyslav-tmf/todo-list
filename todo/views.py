@@ -8,7 +8,7 @@ from todo.models import Tag, Task
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    tasks = Task.objects.all()
+    tasks = Task.objects.prefetch_related("tag")
     return render(request, "todo/index.html", {"tasks": tasks})
 
 
